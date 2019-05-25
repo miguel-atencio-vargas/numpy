@@ -1,0 +1,21 @@
+<div class="navigation col-lg-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand" [routerLink]="['/']">ÁLGEBRA LINEAL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a [routerLink]="['/operaciones']" [routerLinkActive]="['active']" class="nav-link">Operaciones con matrices</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/transpuesta']" [routerLinkActive]="['active']" class="nav-link">Matriz transpuesta</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/determinante']" [routerLinkActive]="['active']" class="nav-link">Determinantes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

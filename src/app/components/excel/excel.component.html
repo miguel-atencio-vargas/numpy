@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <h2>Suba sus dos archivos excel para efectuar la operacion.</h2>
+        <h6>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit ut posuere blandit gravida, velit euismod commodo inceptos praesent torquent proin fermentum semper mus, curabitur maecenas magna quis etiam fusce convallis himenaeos luctus nulla. Fringilla morbi
+            nostra himenaeos curabitur aenean pulvinar facilisi iaculis id ornare, cursus egestas scelerisque elementum phasellus malesuada tempor torquent varius dictum, tempus lectus nibh dui quis sagittis ac massa purus. Laoreet hendrerit penatibus
+            montes mauris nisi cras ac in, feugiat posuere dui magnis blandit torquent auctor donec, lectus dapibus non mollis placerat felis volutpat. Platea etiam sollicitudin phasellus proin enim magnis libero rutrum ultrices, feugiat tortor euismod
+
+
+        </h6>
+    </div>
+    <div class="row">
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="col-12 card" style="width: 27rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Suba su archivo .xlsx</h5>
+                    <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+                </div>
+            </div>
+            <div class="col-12 card" style="width: 27rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Suba su archivo .xlsx</h5>
+                    <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+                </div>
+            </div>
+            <input type="submit" value="Sumar" class="btn-success btn">
+        </form>
+        <app-resultado [matriz_resultado]="resultado"></app-resultado>
+    </div>
+
+</div>
