@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { OperacionesService } from '../../services/operaciones.service'
 
@@ -9,22 +9,30 @@ import { OperacionesService } from '../../services/operaciones.service'
   providers: [OperacionesService]
 })
 export class ExcelComponent implements OnInit {
-  public data = [] ;
-  // @Output() public resultado = new EventEmitter<number>();
+  public data: any = {matrix: [], operacion: ''} ;
   public resultado;
-  public status: string;
+  public mensaje = '';
 // tslint:disable-next-line: variable-name
   constructor(private _operacionesService: OperacionesService) { }
 
-  ngOnInit() {
-    console.log('Componente de login cargado');
+  ngOnInit() {}
+
+  onSubmit() {
+    this._operacionesService.operaciones(this.data).subscribe(
+      response => {
+        this.mensaje = response.mensaje;
+        response = JSON.parse(response.resultado);
+        this.resultado = response.data;
+      }
+    );
   }
-
-
+  operacion(value) {
+    this.data.operacion = value;
+  }
   onFileChange(evt: any) {
     /* wire up file reader */
     const target: DataTransfer = (evt.target) as DataTransfer;
-    if (target.files.length !== 1) { throw new Error('Cannot use multiple files'); }
+    if (target.files.length !== 1) { throw new Error('NO se pueden subir multiples archivos'); }
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
       /* read workbook */
@@ -34,25 +42,10 @@ export class ExcelComponent implements OnInit {
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
       /* save data */
-      this.data.push(XLSX.utils.sheet_to_json(ws, {header: 1})) ;
+      const excelVector = XLSX.utils.sheet_to_json(ws, {header: 1});
+      this.data.matrix.push(excelVector);
+      /* empaquetamos el vector para enviarlo al backend */
     };
     reader.readAsBinaryString(target.files[0]);
-  }
-
-
-
-  onSubmit() {
-    this._operacionesService.sumar(this.data).subscribe(
-      response => {
-        this.resultado = JSON.parse(response.resultado).data;
-      },
-      error => {
-        const errorMessage: any = error;
-        console.log(errorMessage);
-        if (errorMessage != null) {
-           this.status = 'error';
-       }
-      }
-    );
   }
 }

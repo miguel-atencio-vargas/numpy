@@ -1,5 +1,13 @@
-<ul>
-    <li *ngFor="let col of matriz_resultado">
-        {{col}}
-    </li>
-</ul>
+<div class="alert alert-success" *ngIf="mensaje.includes('Error')==false">
+    {{mensaje}}
+</div>
+<div class="alert alert-danger" *ngIf="mensaje.includes('Error')==true">
+    {{mensaje}}
+</div>
+<table class="table table-striped table-dark">
+    <tbody>
+        <tr *ngFor="let i of matriz_resultado">
+            <td *ngFor="let j of i">{{ j }}</td>
+        </tr>
+    </tbody>
+</table>

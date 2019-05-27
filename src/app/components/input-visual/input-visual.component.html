@@ -1,0 +1,23 @@
+<form>
+    <div class="row">
+        <div *ngFor="let i of rows" class="col-2">
+            <p *ngFor="let i of cols">
+                <input type="text" (select)="onKey($event)">
+            </p>
+            {{values}}
+        </div>
+
+    </div>
+    <div>
+        <p> <input type="number" (click)="changeCols()" value="1" min="1" max="5"> filas</p>
+        <p><input type="number" (click)="changeRows()" value="2" min="2" max="5"> columnas</p>
+    </div>
+</form>
+<section>
+    <label for="workStatus">Work Status</label>
+    <select name="workStatus" [(ngModel)]="contact.workStatus">
+      <option *ngFor="let wkSt of workStatuses" [value]="wkSt.id">
+        <span>{{ wkSt.description }}</span>
+      </option>
+    </select>
+</section>

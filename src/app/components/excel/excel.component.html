@@ -2,31 +2,39 @@
     <div class="row">
         <h2>Suba sus dos archivos excel para efectuar la operacion.</h2>
         <h6>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit ut posuere blandit gravida, velit euismod commodo inceptos praesent torquent proin fermentum semper mus, curabitur maecenas magna quis etiam fusce convallis himenaeos luctus nulla. Fringilla morbi
-            nostra himenaeos curabitur aenean pulvinar facilisi iaculis id ornare, cursus egestas scelerisque elementum phasellus malesuada tempor torquent varius dictum, tempus lectus nibh dui quis sagittis ac massa purus. Laoreet hendrerit penatibus
-            montes mauris nisi cras ac in, feugiat posuere dui magnis blandit torquent auctor donec, lectus dapibus non mollis placerat felis volutpat. Platea etiam sollicitudin phasellus proin enim magnis libero rutrum ultrices, feugiat tortor euismod
-
-
+            Para realizar las siguientes operaciones por favor verifique que sus matrices sean cuadradas Para el caso de la multiplicacion entre matrices verifique que la cantidad de columnas de A sea igual a la cantidad de filas de B. <br>
+            <B>
+            Para la resolucion de ecuaciones lineales solo introduzca los valores de las constantes dejando solamente su notación en matrices.
+            La respuesta se la dara en una fila por cada incognita.
+            </B>
         </h6>
     </div>
     <div class="row">
 
         <form (ngSubmit)="onSubmit()">
-            <div class="col-12 card" style="width: 27rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Suba su archivo .xlsx</h5>
-                    <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suba su archivo (A) .xlsx</h5>
+                        <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suba su archivo (B) .xlsx</h5>
+                        <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+                    </div>
+                </div>
+                <div>
+                    <input (click)="operacion('+')" type="submit" value="Sumar" class="btn btn-outline-success miBtn">
+                    <input (click)="operacion('-')" type="submit" value="Restar" class="btn btn-outline-info miBtn">
+                    <input (click)="operacion('*')" type="submit" value="Multiplicar" class="btn btn-outline-danger miBtn">
+                    <hr>
+                    <input (click)="operacion('lineal')" type="submit" value="Resolver el sistema de ecuaciones de la forma A*X=B" class="btn btn-warning miBtn">
                 </div>
             </div>
-            <div class="col-12 card" style="width: 27rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Suba su archivo .xlsx</h5>
-                    <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
-                </div>
-            </div>
-            <input type="submit" value="Sumar" class="btn-success btn">
         </form>
-        <app-resultado [matriz_resultado]="resultado"></app-resultado>
     </div>
+    <app-resultado class="col-6" [matriz_resultado]="resultado" [mensaje]="mensaje"></app-resultado>
 
 </div>

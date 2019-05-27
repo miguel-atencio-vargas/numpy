@@ -10,6 +10,14 @@
 }
 
 
+/* estilos de mis botonoes */
+
+.miBtn {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
 /* Editar header */
 
 .navigation {

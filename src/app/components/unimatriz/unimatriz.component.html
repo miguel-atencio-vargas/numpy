@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <h2>Suba su archivo de excel y elija una operacion.</h2>
+        <h6>
+            Para encontrar la matriz inversa o su determinante por favor verifique que su matriz sea <b>cuadrada</b> .
+        </h6>
+    </div>
+    <div class="row">
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suba su archivo .xlsx</h5>
+                        <input class="btn-success " type="file" (change)="onFileChange($event)" multiple="false" />
+                    </div>
+                </div>
+                <div>
+                    <p> Por favor elija una operación:</p>
+                    <input (click)="operacion('transpuesta')" type="submit" value="Transpuesta" class="btn btn-outline-primary miBtn">
+                    <input (click)="operacion('diagonal')" type="submit" value="Diagonal" class="btn btn-outline-success miBtn">
+                    <input (click)="operacion('inversa')" type="submit" value="Inversa" class="btn btn-outline-warning miBtn">
+                    <input (click)="operacion('triangularI')" type="submit" value="Triangular Inferior" class="btn btn-outline-info miBtn">
+                    <input (click)="operacion('triangularS')" type="submit" value="Triangular Superior" class="btn btn-outline-info miBtn">
+                    <hr>
+                    <input (click)="operacion('determinante')" type="submit" value="Determinante" class="btn btn-primary miBtn">
+                    <input (click)="operacion('rango')" type="submit" value="Rango" class="btn btn-success miBtn">
+                    <input (click)="operacion('norma')" type="submit" value="Norma" class="btn btn-warning miBtn">
+                </div>
+            </div>
+        </form>
+    </div>
+    <app-resultado class="col-6" [matriz_resultado]="resultado" [mensaje]="mensaje"></app-resultado>
