@@ -3,14 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ExcelComponent } from './components/excel/excel.component';
 import { UnimatrizComponent } from './components/unimatriz/unimatriz.component';
-import { EcuacionesComponent } from './components/ecuaciones/ecuaciones.component';
-
+import { ExportComponent } from './components/export/export.component';
 
 const appRoutes: Routes = [
     {path: 'dashboard', component: DashboardComponent},
     {path: 'operaciones', component: ExcelComponent},
     {path: 'unimatriz', component: UnimatrizComponent},
-    {path: 'ecuaciones', component: EcuacionesComponent},
+    {path: 'random', component: ExportComponent},
     {path: '**', component: DashboardComponent}
 ];
 

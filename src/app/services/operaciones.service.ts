@@ -20,6 +20,11 @@ export class OperacionesService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(this.url + 'unimatriz', params, {headers});
    }
+   random(data: any): Observable<any> {
+    const params = JSON.stringify(data);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.post(this.url + 'random', params, {headers});
+   }
 }
 
 

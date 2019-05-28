@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()">
+    <h2>Introduzca sus dimensiones para generar un archivo excel</h2>
+    <input type="text" [(ngModel)]="rows" [ngModelOptions]="{standalone: true}">
+    <input type="text" [(ngModel)]="cols" [ngModelOptions]="{standalone: true}">
+    <hr>
+    <span><input type="submit" value="Generar excel "></span>
+</form>

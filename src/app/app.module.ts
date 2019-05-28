@@ -12,8 +12,8 @@ import { ExcelComponent } from './components/excel/excel.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
 import { UnimatrizComponent } from './components/unimatriz/unimatriz.component';
 import { InputVisualComponent } from './components/input-visual/input-visual.component';
-import { EcuacionesComponent } from './components/ecuaciones/ecuaciones.component';
 import { CommonModule } from '@angular/common';
+import { ExportComponent } from './components/export/export.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
     ResultadoComponent,
     UnimatrizComponent,
     InputVisualComponent,
-    EcuacionesComponent
+    ExportComponent
   ],
   imports: [
     BrowserModule,
