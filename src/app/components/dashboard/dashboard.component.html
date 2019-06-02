@@ -1,9 +1,24 @@
-<div class="jumbotron">
-    <h1 class="display-4">Bienvenidos a Numpy y Scipy Service</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" role="button">Learn more</a>
-    </p>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenidos a Numpy y Scipy</h1>
+        <div>
+            En esta pagina usted puede realizar operaciones con sus archivos de excel. Las operaciones que puede realizar son las siguientes:
+            <ul>
+                <li *ngFor="let i of a">{{i}}</li>
+            </ul>
+            <a class="btn btn-warning" [routerLink]="['/operaciones']" [routerLinkActive]="['active']">Operaciones con dos matrices</a>
+            <hr> Tambien puede obtener informacion de las matrices como:
+            <ul>
+                <li *ngFor="let i of b">{{i}}</li>
+            </ul>
+            <a [routerLink]="['/unimatriz']" [routerLinkActive]="['active']" class="btn btn-info">Operaciones con una matriz</a>
+            <hr> En este apartado puede generar un archivo de excel otorgandoles rangos, con las dimensiones que usted elija y con los siguientes parametros:
+            <ul>
+                <li *ngFor="let i of c">{{i}}</li>
+            </ul>
+            <a [routerLink]="['/random']" [routerLinkActive]="['active']" class="btn btn-success">Generar Archivos Excel</a>
+        </div>
+
+    </div>
+    <p class="text-muted small text-center">Universidad Loyola de Bolivia - 2019</p>
 </div>

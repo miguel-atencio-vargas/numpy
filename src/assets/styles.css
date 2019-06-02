@@ -1,5 +1,14 @@
 /* Generales */
 
+.row {
+    padding-top: 18px
+}
+
+.mySelect {
+    max-width: 250px;
+    border-left: 3px solid #91f887 !important;
+}
+
 .h1-strong {
     font-size: 35px;
     font-weight: bold;
